@@ -1,0 +1,293 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>About</title>
+
+<style>
+
+  body {
+
+    margin: 0;
+
+    padding: 0;
+
+    font-family: Arial, sans-serif;
+
+    height: 100vh;
+
+    background-image: url('https://i.imgur.com/BxSA5Io.png');
+
+    background-size: cover;
+
+    background-repeat: no-repeat;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+  }
+
+  
+
+  .box-ui {
+
+    width: 300px;
+
+    height: 655px;
+
+    background-image: url('https://i.imgur.com/BxSA5Io.png');
+
+    background-size: cover;
+
+    background-repeat: no-repeat;
+
+    border: 3px solid red;
+
+    border-radius: 5%;
+
+    overflow: hidden;
+
+    position: relative;
+
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+
+  }
+
+  
+
+  .content {
+
+    padding: 20px;
+
+    box-sizing: border-box;
+
+    text-align: center;
+
+  }
+
+  
+
+  .profile-pic {
+
+    width: 100px;
+
+    height: 100px;
+
+    border-radius: 50%;
+
+    position: absolute;
+
+    top: 50px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    border: 3px solid white;
+
+  }
+
+  
+
+  .social-buttons {
+
+    position: absolute;
+
+    bottom: 20px;
+
+    width: 100%;
+
+    text-align: center;
+
+  }
+
+  .social-buttons a {
+
+    display: inline-block;
+
+    margin: 0 10px;
+
+  }
+
+  .social-buttons img {
+
+    width: 40px;
+
+  }
+
+  
+
+  .profile-name {
+
+    position: absolute;
+
+    bottom: 470px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    color: white;
+
+    font-size: 20px;
+
+    text-shadow: 5px 5px 8px rgba(0, 0, 0, 0.9);
+
+    animation: glow 3s infinite alternate;
+
+  }
+
+  
+
+  @keyframes glow {
+
+    from {
+
+      color: red;
+
+    }
+
+    to {
+
+      color: black;
+
+    }
+
+  }
+
+  .about-button, .home-button {
+
+    position: absolute;
+
+    padding: 10px 20px;
+
+    font-size: 16px;
+
+    background-color: transparent;
+
+    color: #ffffff;
+
+    border: 2px solid #ffffff;
+
+    border-radius: 20px;
+
+    cursor: pointer;
+
+    text-decoration: none;
+
+  }
+
+  .about-button:hover, .home-button:hover {
+
+    background-color: #ffffff;
+
+    color: #000000;
+
+  }
+
+  .about-button {
+
+    bottom: 100px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+  }
+
+  .home-button {
+
+    top: 20px;
+
+    left: 20px;
+
+  }
+
+  .home-button::before, .home-button::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    background: linear-gradient(45deg, red, black);
+
+    z-index: -1;
+
+    border-radius: 20px;
+
+    transition: opacity 0.3s ease;
+
+    opacity: 0;
+
+  }
+
+  .home-button:hover::before, .home-button:hover::after {
+
+    opacity: 1;
+
+  }
+
+</style>
+
+</head>
+
+<body>
+
+  <div class="box-ui">
+
+    <a href="Pinoybotlog.html" class="home-button"> Home </a>
+
+    <img src="https://i.imgur.com/YbpP90k.jpeg" alt="Profile Picture" class="profile-pic">
+
+    <div class="content">
+
+    </div>
+
+    <div class="social-buttons">
+
+      <a href="https://www.facebook.com/profile.php?id=100088690249020" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook"></a>
+
+      <a href="https://chat.whatsapp.com/Fx0Q9GM5VrpI7k8HmDHue3" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp"></a>
+
+      <a href="https://github.com/joshuaAposto" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub"></a>
+
+    </div>
+
+    <div class="profile-name">Joshua Apostol</div>
+
+    <button class="about-button" onclick="showAbout()">Conversational AI Chatbot</button>
+
+  </div>
+
+  <script>
+
+    function showAbout() {
+
+      alert("Conversational AI Chatbot\nLooking for an amazing conversational PinoyBotlogGpt 4 Online experience without any cost? You’re in the right place! Our PinoyBotlogGpt is just like the official PinoyBotlogGpt and is free to use.\n\nAll you need to do is enter some text prompts, and our intelligent conversational AI chatbot, a PinoyBotlogGpt version available online, will provide you with insightful responses. Whether you want to discuss a topic, brainstorm ideas, or simply have a friendly conversation, our PinoyBotlogGpt is here to help!\n\nAnd the best part?\n\nYou can benefit from this PinoyBotlogGpt right away, with no strings attached! No downloads, no installations, just instant access to a powerful conversational AI chatbot at your fingertips.\n\nIf you’re curious about the latest AI news, need assistance with a problem, or seeking entertainment, our PinoyBotlogGpt has got you covered. Just type in your thoughts and let the magic unfold.\n\nNow’s the perfect time to give it a whirl! Please don’t wait any longer; start chatting with our conversational AI chatbot and experience the future of AI. Let your creativity flow, explore new ideas, and have fun interacting with this free and advanced AI Chat.\n\nSo, what are you waiting for? Dive into AI-powered conversations with our PinoyBotlogGpt tool right now. Embrace the unlimited possibilities and enjoy the journey of discovery. Have fun exploring the capabilities of our AI chatbot.");
+
+    }
+
+  </script>
+
+</body>
+
+</html>
+
