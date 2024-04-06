@@ -1,0 +1,547 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>PinoyBotlogGPT</title>
+
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+
+body {
+
+  background-image: url('https://r2.easyimg.io/pph6hi3hb/1134788.png');
+  background-size: cover;
+
+  background-repeat: no-repeat;
+
+  background-position: center;
+
+  margin: 0;
+
+  padding: 0;
+
+  font-family: 'Arial', sans-serif;
+
+  display: flex;
+
+  flex-direction: column;
+
+  min-height: 100vh;
+
+}
+
+ 
+
+.container {
+
+  max-width: 800px;
+
+  margin: 5px auto;
+
+  padding: 20px;
+
+  border-radius: 20px;
+
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  flex: 1;
+
+}
+
+ 
+
+.title {
+
+  text-align: center;
+
+}
+
+ 
+
+.title h1 {
+
+  font-size: 48px;
+
+  color: #333;
+
+}
+
+ 
+
+.about-button {
+
+  text-align: right;
+
+  margin-top: 20px;
+
+}
+
+ 
+
+.about-button a {
+
+  color: red;
+
+  text-decoration: none;
+
+  font-size: 18px;
+
+  cursor: pointer;
+
+  animation: glowing-red 1.5s infinite alternate, shadow-glowing 1.5s infinite alternate;
+
+}
+
+ 
+
+@keyframes glowing-red {
+
+  from {
+
+    color: #000;
+
+  }
+
+  to {
+
+    color: red;
+
+  }
+
+}
+
+ 
+
+@keyframes shadow-glowing {
+
+  from {
+
+    text-shadow: 0 0 10px #000, 0 0 20px #000, 0 0 30px #000, 0 0 40px #000, 0 0 50px #000, 0 0 60px #000, 0 0 70px #000, 0 0 80px #000;
+
+  }
+
+  to {
+
+    text-shadow: none;
+
+  }
+
+}
+
+ 
+
+.chat-box {
+
+  max-width: 100%;
+
+  height: 400px;
+
+  overflow-y: auto;
+
+  padding: 10px;
+
+  border-radius: 10px;
+
+  border: 2px solid #007bff;
+
+  margin-bottom: 10px;
+
+}
+
+ 
+
+.message {
+
+  max-width: 70%;
+
+  margin: 10px;
+
+  padding: 10px 20px;
+
+  border-radius: 20px;
+
+  font-size: 16px;
+
+  clear: both;
+
+}
+
+ 
+
+.user-message {
+
+  background-color: #007bff;
+
+  color: white;
+
+  float: right;
+
+}
+
+ 
+
+.bot-message {
+
+  background-color: #eee;
+
+  color: black;
+
+  float: left;
+
+  cursor: pointer;
+
+}
+
+ 
+
+.user-input {
+
+  width: calc(100% - 90px);
+
+  padding: 10px;
+
+  border: 2px solid #007bff;
+
+  border-radius: 20px;
+
+  margin-bottom: 10px;
+
+  font-size: 16px;
+
+  color: #007bff;
+
+  box-sizing: border-box;
+
+}
+
+ 
+
+.send-button {
+
+  width: 80px;
+
+  padding: 10px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  background-color: #007bff;
+
+  color: white;
+
+  cursor: pointer;
+
+  font-size: 16px;
+
+  float: right;
+
+}
+
+ 
+
+.send-button:disabled {
+
+  background-color: #999;
+
+  cursor: not-allowed;
+
+}
+
+ 
+
+.typing-indicator {
+
+  display: none;
+
+  font-style: italic;
+
+  color: #888;
+
+  margin-top: 10px;
+
+}
+
+ 
+
+.typing-indicator img {
+
+  display: block;
+
+  margin: 0 auto;
+
+  width: 250px;
+
+}
+
+ 
+
+.credit {
+
+  font-size: 12px;
+
+  color: #888;
+
+  margin-top: 10px;
+
+  text-align: center;
+
+  animation: glowing 1.5s infinite alternate;
+
+}
+
+ 
+
+@keyframes glowing {
+
+  from {
+
+    color: #888;
+
+  }
+
+  to {
+
+    color: #ff00ff;
+
+  }
+
+}
+
+  </style>
+
+</head>
+
+<body>
+
+  <div class="container">
+
+    <div class="title">
+
+      <h1>Pinoy Botlog</h1>
+
+    </div>
+
+    <div class="about-button">
+
+      <a href="about.html">About Us</a>
+
+    </div>
+
+    <div class="chat-box" id="chat-box">
+
+      <div class="message bot-message">How may I assist you today?</div>
+
+    </div>
+
+    <input type="text" id="user-input" class="user-input" placeholder="💬 Type your message...">
+
+    <button class="send-button" id="send-button">Send</button>
+
+    <div class="typing-indicator" id="typing-indicator">
+
+      <img src="https://i.imgur.com/FNfDK4Y.png" alt="Typing Indicator">
+
+    </div>
+
+    <div class="credit">&copy; 2024 Joshua Apostol. All rights reserved. All materials on this website, including text, graphics, and other content, are the property of Joshua Apostol and are protected by international copyright laws. Unauthorized use, reproduction, or distribution of any content from this website is strictly prohibited without prior written permission from Joshua Apostol.</div>
+
+  </div>
+
+ 
+
+  <div id="counters" style="position: fixed; bottom: 10px; right: 10px; background-color: #fff; border: 1px solid #ccc; border-radius: 5px; padding: 5px;">
+
+    <span style="cursor: pointer; float: right;" onclick="closeCounters()">X</span>
+
+    <script type="text/javascript" src="https://www.counters-free.net/count/f3zi"></script>
+
+    <br>
+
+    <a href='http://www.freevisitorcounters.com'>Freevisitorcounters.com</a> <script type='text/javascript' src='https://whomania.com/ctr?id=e1f85c3ca1d55e0305736a73bb464ae971402426'></script>
+
+  </div>
+
+ 
+
+  <script>
+
+    function closeCounters() {
+
+      var counters = document.getElementById('counters');
+
+      counters.style.display = 'none';
+
+    }
+
+    const input = document.getElementById('user-input');
+
+    const button = document.getElementById('send-button');
+
+    const c = document.getElementById('chat-box');
+
+ 
+
+  async function sendMessage() {
+
+  let userInput = input.value;
+
+  if (!userInput.trim()) return; 
+
+  input.value = '';
+
+  let userMessage = document.createElement('div');
+
+  userMessage.classList.add('message', 'user-message');
+
+  userMessage.innerHTML = `
+
+    <div>${userInput}</div>
+
+  `;
+
+ 
+
+  c.appendChild(userMessage);
+
+  c.scrollTop = c.scrollHeight;
+
+ 
+
+  try {
+
+    let processingMessage = document.createElement('div');
+
+    processingMessage.classList.add('message', 'bot-message');
+
+    processingMessage.innerHTML = `
+
+      <div>PinoyBotlog is processing your query, please wait for a moment.</div>
+
+      <div class="typing-indicator"><img src="https://i.imgur.com/FNfDK4Y.png" alt="Typing Indicator" style="width: 20px; height: 20px;"></div>
+
+    `;
+
+    c.appendChild(processingMessage);
+
+    c.scrollTop = c.scrollHeight;
+
+ 
+
+    let response = await getBotResponse(userInput);
+
+    c.removeChild(processingMessage);
+
+ 
+
+    let botMessage = document.createElement('div');
+
+    botMessage.classList.add('message', 'bot-message');
+
+    botMessage.innerHTML = `
+
+      <div>${response}</div>
+
+    `;
+
+    c.appendChild(botMessage);
+
+    botMessage.addEventListener('click', () => {
+
+      let responseWithoutBr = response.replace(/<br>/g, '\n'); 
+
+      navigator.clipboard.writeText(responseWithoutBr).then(() =>{
+
+          console.log("Copied to clipboard");
+
+      }).catch(err => {
+
+          console.error('Could not copy text: ', err);
+
+      });
+
+    });
+
+  } catch (error) {
+
+    console.error('Error:', error.message);
+
+    let errorMessage = document.createElement('div');
+
+    errorMessage.classList.add('message', 'bot-message');
+
+    errorMessage.innerText = 'Error: ' + error.message;
+
+    c.appendChild(errorMessage);
+
+  }
+
+ 
+
+  c.scrollTop = c.scrollHeight;
+
+}
+
+ 
+
+    button.addEventListener('click', sendMessage);
+
+    input.addEventListener('keypress', function(event) {
+
+      if (event.key === 'Enter') {
+
+        sendMessage();
+
+      }
+
+    });
+
+ 
+
+    async function getBotResponse(userInput) {
+
+      let randomNumber = Math.floor(Math.random() * 1000000);
+
+      let queryString = `?prompt=${encodeURIComponent(userInput)}&uid=${randomNumber}`;
+
+      let url = `https://ai-tools.replit.app/gpt${queryString}`;
+
+      let response = await fetch(url);
+
+      if (!response.ok) {
+
+        throw new Error('Network response was not ok');
+
+      }
+
+ 
+
+      let data = await response.json();
+
+      let botResponse = data.gpt4;
+
+      if (userInput.toLowerCase().includes('who made you') || userInput.toLowerCase().includes('who created you')) {
+
+        botResponse = "I was created by Joshua Apostol. If you encounter any bugs or issues, please feel free to chat with me on my Facebook account: <a href='https://www.facebook.com/profile.php?id=100088690249020' target='_blank'>Joshua Apostol</a> and the version of our Pinoy Botlog is 2.0.";
+
+      }
+
+      botResponse = botResponse.replace(/\n/g, '<br>'); 
+
+      return botResponse;
+
+    }
+
+  </script>
+
+</body>
+
+  </html>
